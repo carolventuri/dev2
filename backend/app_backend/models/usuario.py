@@ -9,6 +9,11 @@ class Usuario(BaseModel):
         help_text="Nome do usuário.",
         verbose_name="Nome:",
     )
+    cpf = models.CharField(
+        max_length=11, null=False, blank=False, default=0.0,
+        help_text="CPF do usuário.",
+        verbose_name="CPF:",
+    )
 
     def __str__(self):
         return f"{self.name}"
