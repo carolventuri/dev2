@@ -23,27 +23,7 @@ class UsuarioListService(APIView):
         }
         serializer = UsuarioSerializer(usuarios, many=True, context=context)
         return Response(serializer.data)
-
-
-"""
-da para fazer assim também:
-
-@api_view(['GET'])
-def get_usuario(request):
-	usuarios = Usuario.objects.all()
-	serializedData = UsuarioSerializer(usuarios, many=True).data
-	return Response(serializedData)
-
-"""
-
-
-class UsuarioCreateService(APIView):
-    """
-    Service para criar usuarios.
-    """
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
-
+    
     def post(self, request, format=None):
         """
         Cria um novo usuário.
@@ -58,3 +38,15 @@ class UsuarioCreateService(APIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+"""
+da para fazer assim também:
+
+@api_view(['GET'])
+def get_usuario(request):
+	usuarios = Usuario.objects.all()
+	serializedData = UsuarioSerializer(usuarios, many=True).data
+	return Response(serializedData)
+
+"""
