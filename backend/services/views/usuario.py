@@ -46,7 +46,7 @@ class UsuarioCreateService(APIView):
 
     def post(self, request, format=None):
         """
-        Cria um novo usuaário.
+        Cria um novo usuário.
         """
         dados = request.data
         context = {
